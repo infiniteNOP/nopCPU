@@ -3,5 +3,6 @@ It is licensed under the LGPL license. For more information, read the COPYING
 file.
 (This is a WIP!)
 
+The original nopCPU can be found at: https://github.com/infiniteNOP/nopCPU_classic
 (One exception is the testbench, which is licensed under the ISC license.)
 
