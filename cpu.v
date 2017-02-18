@@ -14,7 +14,7 @@ module cpu(input clk, reset, interrupt,
     wire [7:0] alu_out;
     wire [3:0] alu_opcode;
 
-    pc pc0(clk, reset, pc_jump, pc_jumpaddr, datamem_address);
+    pc pc0(clk, reset, pc_jump, pc_freeze, pc_jumpaddr, datamem_address);
     regfile reg0(regfile_read1, regfile_read2, regfile_writereg,
                  regfile_data, clk,  regfile_regwrite,
                  regfile_out1, regfile_out2);
@@ -24,5 +24,5 @@ module cpu(input clk, reset, interrupt,
                    regfile_data, usermem_data_out, regfile_read1, regfile_read2,
                    regfile_writereg, usermem_address,
                    pc_jumpaddr, rw, regfile_regwrite,
-                   pc_jump); 
+                   pc_jump, pc_freeze); 
 endmodule //cpu

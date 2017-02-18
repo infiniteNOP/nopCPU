@@ -28,27 +28,32 @@ module programmem(input [7:0] pgmaddr, output [7:0] pgmdata);
 
     initial
         begin
-            pmemory[0]=8'h80;
+            pmemory[0]=8'h82;
             pmemory[1]=8'hff;
-            pmemory[2]=8'hd0;
-				pmemory[3]=8'h80;
-            pmemory[4]=8'ha4;
-				pmemory[5]=8'ha1;
+            pmemory[2]=8'hb8;
+				pmemory[3]=8'hb1;
+				pmemory[4]=8'h83;
+				pmemory[5]=8'h00;
+				pmemory[6]=8'hb2;
+            pmemory[7]=8'h93;
+				pmemory[8]=8'ha1;
+				pmemory[9]=8'h00;
     end
 endmodule
 
 // Simple user memory for simulation
 module usermem(input clk, input [7:0] uaddr, input [7:0] udata_i,output [7:0] udata_o, input rw);
     reg [7:0] umemory[255:0];
-    assign udata_o=rw?8'bz:umemory[uaddr];
-    always @(negedge clk) 
-        if (rw==1) umemory[uaddr]<=udata_i;
-  
+    assign udata_o=rw?8'bZ:umemory[uaddr];
+    always @(negedge clk) begin
+        if (rw==1) umemory[uaddr] <= udata_i;
+			end
     initial
     begin
-        umemory[0]=8'h00;
-        umemory[1]=8'h00;
-        umemory[2]=8'h00;
+        umemory[0]<=8'h00;
+        umemory[1]<=8'h00;
+        umemory[2]<=8'h00;
+		  umemory[255]<=8'hde;
     end
 endmodule
 
