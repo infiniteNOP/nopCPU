@@ -1,8 +1,14 @@
 Improved, binary-incompatible edition of nopCPU.
 It is licensed under the LGPL license. For more information, read the COPYING
 file.
+(One exception is the testbench, which is licensed under the ISC license.)
+
 (This is a WIP!)
 
+New features include:
+  -A stack!
+  -A modified, more flexible (IMO) ISA!
+  -16-bit address space! [TODO]
+
 The original nopCPU can be found at: https://github.com/infiniteNOP/nopCPU_classic
-(One exception is the testbench, which is licensed under the ISC license.)
 
